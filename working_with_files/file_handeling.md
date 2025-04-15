@@ -55,4 +55,4 @@ chmod +x file_handling_commands.sh
 
 ## ✅ sample output
 ```markdown
-![Script Output](screenshots/sample-output1.png)
+![Script Output](./filecmds.png)
