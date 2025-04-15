@@ -158,3 +158,10 @@ echo "
 After applying -u flag you will see there is changes in the My_plan.txt
 
 "
+
+rm My_plan.txt
+ls
+cd ..
+pwd
+rm application.py
+rm -r example_dir
