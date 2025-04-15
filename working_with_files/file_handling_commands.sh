@@ -16,7 +16,6 @@ touch new_text_file.txt"
 touch new_text_file.txt
 
 echo "
-
 "
 echo "check again if the file is created or not?"
 ls
