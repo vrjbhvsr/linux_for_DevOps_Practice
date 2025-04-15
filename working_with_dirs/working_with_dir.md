@@ -62,7 +62,7 @@ chmod +x dir_commands.sh
 ```
 
 ## ✅ Sample output
-![Script Output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/working_with_files/filecmds.png?raw=true)
+![Script Output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/working_with_dirs/dircmds.png?raw=true)
 
 ## What I learned? 💪
 * How to create directories?
