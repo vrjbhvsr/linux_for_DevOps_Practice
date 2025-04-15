@@ -11,11 +11,27 @@ With this i have learned how to get information of the files also how do we crea
 * `rm`
 * `cat`
 * `echo`
+* `grep`
+* `sort`
+* `|`
 
-**I have also shown different flags used with `ls` commands**
+**🔎I have also shown different flags used with `ls` commands**
 
-* `ls -l`, `ls -a`, `ls -s`, `ls -lsa`
-
+| command | flag | Discription |
+|---------|------|-------------|
+|ls|-l| lists all the content along with authers, permission, size.|
+|ls|-a| lists all the hidden content. |
+|ls|-s| gives the size of content.|
+|ls|-lsa| gives all info as above flags.|
+|cat| -b| numbers the all non-blank lines.|
+|cat| -n| numbers all the lines.|
+|cat| -s| squeezez the blank line to one line.|
+|grep| -i| used to get case insensitive search string.|
+|grep| -v| returns the output that is not matched with search string.|
+|grep| -n| returns the lines with numbers for matched search string.|
+|grep| -c | returns the number of lines which has matched search string.|
+|sort| -r | returns the output lines in reverse order.| 
+|sort| -n | sorts the line numerically.|
 ```markdown
 ## 📄 What This Script Does
 
@@ -56,9 +72,11 @@ chmod +x file_handling_commands.sh
 ## ✅ sample output
 ![Script Output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/working_with_files/filecmds.png?raw=true)
 
-## What I learned?  💪
+## What I learned? 💪
 * How to create files?
 * how to automate the script(basic)?
 * how to visualize the file content?
+* how to extract the patterns or string/word from the file?
+* how to sort the results?
 
 
