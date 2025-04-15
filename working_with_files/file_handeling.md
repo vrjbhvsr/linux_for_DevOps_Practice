@@ -56,3 +56,9 @@ chmod +x file_handling_commands.sh
 ## ✅ sample output
 ![Script Output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/working_with_files/filecmds.png?raw=true)
 
+## What I learned?  💪
+* How to create files?
+* how to automate the script(basic)?
+* how to visualize the file content?
+
+
