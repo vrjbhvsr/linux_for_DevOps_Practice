@@ -24,6 +24,8 @@ I have created a simple bash script, where i have practiced simple but very usef
 | `cd`|                | change dir to home dir|
 | `cd /` |          | change dir to root dir |
 | `cd ~` |          | change dir to home dir |
+| `mv` | -i  | moves file or dir from source to destination with permission|
+| `mv` | -u |moves the file or dir if the content of the file is different            |
 
 
 ## 📄 What This Script Does
