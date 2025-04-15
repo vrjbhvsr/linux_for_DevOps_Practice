@@ -54,5 +54,5 @@ chmod +x file_handling_commands.sh
 ```
 
 ## ✅ sample output
-```markdown
-![Script Output](working_with_files/filecmds.png)
+![Script Output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/working_with_files/filecmds.png?raw=true)
+
