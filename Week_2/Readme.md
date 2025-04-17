@@ -47,7 +47,7 @@ sudo -i
 ```
 **↩️ Before:**
 
-![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/ubuuser.png)
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/ubuuser.png)
 
 **↪️ After:**
 ![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/rtusr.png)
