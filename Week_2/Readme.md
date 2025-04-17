@@ -26,7 +26,7 @@ su - username
 As I am using AWS EC2 instance, I am not a root user. In this case I still have privilage to use root users commands by using `sudo` command. It temporarily grant a user administrative rights.
 
 ❌ For example, I tried to install vim editor as ubuntu user without using Sudo command and it gave the error message in return.
-![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/apt.png)
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/apt.png)
 
 ▶️ To install vim editor by not being a root user:
 ```bash
@@ -50,7 +50,7 @@ sudo -i
 ![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/ubuuser.png)
 
 **↪️ After:**
-![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/rtusr.png)
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/rtusr.png)
 
 **🫅 Now, I have root user privilage, let me create first user now.**
 
@@ -64,7 +64,7 @@ By default this command create user, and groups it with the same username and as
 > 
 > *💡Tip: To check user is created or not we can use `id newuser`.*
 
-![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/newusr.png)
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/newusr.png)
 
 ### **2️⃣ `useradd` with flags**
 
@@ -78,15 +78,15 @@ useradd -g <groupname> -s /bin/bash -c "<some info about user>" -m -d <custom pa
 ✅ -m creates home directory for the user
 ✅ -d specifz custom location for home directory
 
-![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/newusrdt.png)
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/newusrdt.png)
 
 > *🔎 `-g` with group name will assign user to that group. if we dont use `-g` flag, it will create and assign new group with same name as newuser. Also, this flag will assign the given group as a default group for that user.*
 
-![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/gnewusr.png)
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/gnewusr.png)
 
 > *🔷 Info: `-G` flag will assign user to secondary groups.So, The user can be part of other groups also.*
 
-![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/Gnewuser.png)
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/Gnewuser.png)
 
 
 ### 🧑‍💻 When a User is Created:
@@ -101,7 +101,7 @@ To assign user in another group I useed `usermod -G`
 ```bash
 usermod -G <grpname> <user_name>
 ```
-![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/modusr.png)
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/modusr.png)
 
 > *⚠️ When I tried to assign another group named 'peter' it replaces the secondary group 'vraj'.*
 
@@ -111,7 +111,7 @@ usermod -G peter vraj
 usermod -aG vraj vraj
 ```
 
-![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/modusr2.png)
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/modusr2.png)
 
 **As we can see:**
 * the default(primary) group for vraj user is bhavsar.
@@ -122,7 +122,7 @@ usermod -aG vraj vraj
 ```bash
 usermod -g vraj vraj
 ```
-![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/modusr3.png)
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/modusr3.png)
 
 ### ⏩ Other usermod options:
 ✅ `-m -d`:  /jome/newfolder (I can move the users home directory to new location.)
@@ -137,6 +137,6 @@ usermod -g vraj vraj
 usermod -m -d /home/VRaj Raj
 ```
 
-![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/mdmodusr.png)
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/mdmodusr.png)
 
 ![📖 Continue Reading...](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/Readme2.md)
