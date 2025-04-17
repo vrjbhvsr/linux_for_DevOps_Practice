@@ -10,7 +10,7 @@ passwd <username>
 ```
 It will ask me to enter new password for given user and retype it for confirmation.
 
-![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/psswd.png)
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/psswd.png)
 
 **Now, let's switch from the root user to vraj user**
 
@@ -21,11 +21,11 @@ su - vraj
 > 
 > **Same way if i want to switch from vraj to peter i need to provide password for peter if peter's password is set. if peter's password is not set it will still ask the password and will throw the error authenticatio failiur.**
 
-![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/psswd2.png)
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/psswd2.png)
 
 I faced one situation where i switched from root user to peter and when i tried to switch back to root user, it asked me to type password for peter eben though i have not set it yet. I came out of it by doing following:
 
-![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/psswd3.png)
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/psswd3.png)
 
 > **Even though peter is in the sudo group, you still need to authenticate. That means a password must be set for peter in order to use sudo privilage.**
 > 
@@ -57,7 +57,7 @@ groupdel operations                                # to delete group
 less /etc/group
 ```
 
-![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/grp.png)
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/grp.png)
 
 ## Deleting Users
 This task is also simple. I simply write:
