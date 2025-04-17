@@ -124,4 +124,19 @@ usermod -g vraj vraj
 ```
 ![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/modusr3.png)
 
+### ⏩ Other usermod options:
+✅ `-m -d`:  /jome/newfolder (I can move the users home directory to new location.)
+
+✅ `-s`: I can modify users default shell type also, instead of bash I can modify it to `fish` or `zsh`
+
+✅ `-L` / `-U`: I can lock or unlock user as root user.
+
+✅ `-p` : I can change the password of the user.
+
+```bash
+usermod -m -d /home/VRaj Raj
+```
+
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/mdmodusr.png)
+
 ![📖 Continue Reading...](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/Readme2.md)
