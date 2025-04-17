@@ -139,4 +139,4 @@ usermod -m -d /home/VRaj Raj
 
 ![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/mdmodusr.png)
 
-![📖 Continue Reading...](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/Readme2.md)
+![📖 Continue Reading...](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/User_Account_management/Readme2.md)
