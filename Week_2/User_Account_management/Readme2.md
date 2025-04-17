@@ -1,5 +1,5 @@
 # 🐧 Linux User Account Management 🔐
-![...previous⬅️](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/Readme.md)
+![...previous⬅️](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/User_Account_management/Readme.md)
 
 ## 🔑Set Password for user
 So far, I have created multiple users but didn't set password. 
