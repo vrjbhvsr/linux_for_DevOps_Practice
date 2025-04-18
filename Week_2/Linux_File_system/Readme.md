@@ -43,7 +43,7 @@ This file system provides advanced features like snapshots, checksums, compressi
 
 ***Use case:*** Systems requiring snapshotting, versioning, or built-in RAID (like openSUSE or Fedora).
 
-> There are other file systems also such as FAT32, exFAT, NTFS but each of these has its own pros and cons. The above mentioned FS are widely poppular and used.
+> There are other file systems also such as FAT32, exFAT, NTFS, vfat, tmpfs but each of these has its own pros and cons. The above mentioned FS are widely poppular and used.
 
 To check which file system my linux distro uses there are few commands that gives me info about it.
 
@@ -56,3 +56,8 @@ mount | grep '^/'
 🧐 As I am using AWS EC2 instance, let me check which file system it using:
 
 ![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/FSCMD.png)
+
+It looks Scary😨. I don't understand anything from the above Screenshot. The only thing I understood is some Files has ext4 type, some has tmpfs.......
+I think, I have to understand the file structure now, to understand what these files represent.
+
+![continue Reading.....➡️](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/Linux_File_system/Readme2.md)
