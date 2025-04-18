@@ -52,3 +52,7 @@ df -Th
 lsblk -f
 mount | grep '^/'
 ```
+
+🧐 As I am using AWS EC2 instance, let me check which file system it using:
+
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/FSCMD.png)
