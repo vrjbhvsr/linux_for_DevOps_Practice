@@ -60,4 +60,4 @@ mount | grep '^/'
 It looks Scary😨. I don't understand anything from the above Screenshot. The only thing I understood is some Files has ext4 type, some has tmpfs.......
 I think, I have to understand the file structure now, to understand what these files represent.
 
-![continue Reading.....➡️](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/Linux_File_system/Readme2.md)
+[continue Reading.....➡️](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/Linux_File_system/Readme2.md)
