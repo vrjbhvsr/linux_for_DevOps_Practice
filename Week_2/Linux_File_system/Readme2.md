@@ -1,4 +1,4 @@
-[⬅️......previous](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/edit/main/Week_2/Linux_File_system/Readme.md)
+[⬅️......previous](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/Linux_File_system/Readme.md)
 
 # 🐧Linux File Structure🗃️
  🎋 The linux file system follows a heirarchical file structure So, it must be organized in the form of a tree. 
