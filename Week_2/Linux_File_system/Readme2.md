@@ -11,7 +11,7 @@ At the very beginnig of this tree, sits a root directory as we know represented 
 
 
 ## 📂 /bin (Binary Excecutable)
-`/bin` folder means the binary folder. All the basic important commands -command line programs(binaries)- needed for basic system operations are stored in this folder.
+`/bin` folder means the binary folder. The essential  -command line programs(binaries)- which is called binary excecutables needed for basic system operations like, interacting with system and maintaining it, are stored in this folder.
 The basic commands or binaries that we use such as, `ls`, `pwd`, `rm` are stored here.
 
 **Point to remember:**
@@ -22,17 +22,45 @@ The basic commands or binaries that we use such as, `ls`, `pwd`, `rm` are stored
 
 So, when we write command `ls`, its not that we are giving instruction to kernel. The kernel runs the compiled program named `ls` to perform listing operation.
 
-> 🤔 A question❓: How it processes any command?
+### 🤔 Question❓: How it processes any command?
 * First, when we write:
   
 ```bash
 ls
 ```
-We are not asking kernel to list the files present the directory. Instead, we ask shell to find the command `ls` from the directories listed in `$path` environmental variable. ⏭️ once it find the path, it finds the binary excecutable which is `/bin/ls`. ⏭️ Then shell asks the kernel to load and run by using system call(mostly written in C) `execve`.
+We are not asking kernel to list the files present the directory. 
+**Instead, we ask shell:**
+* ▶️ To find the command `ls` from the directories listed in `$path` environmental variable.
+* ⏭️ Once it find the path, it finds the binary excecutable which is `/bin/ls`.
+* ⏭️ Then shell asks the kernel to load and run by using system call(mostly written in C) `execve`.
 
 ⏭️ Now The kernel takes over the process,
 * it loads and run the binary
 * gives CPU the time
 * runs the program and excecute it as a process.
 
-This process then interact with the file system to fetch the list and diplay it.
+**This process then:** 
+* Interact with the file system
+* Fetch the list of files
+* Display it.
+
+## 📂 /opt (optional)
+The opt directory in the root folder is stands for optional directory. 
+
+**This folder:**
+* ☑️ Does not contain any file that is essential for the system.
+* ☑️ Contains third-party, external software packages and applications such as `Google Chrome`, `JAVA`.
+* ☑️ Keeps the external software and application isolated from the core system files and folders like `/bin`, `/usr`.
+* ☑️ Keeps this third party software packages organized
+
+> *🧠 This folder only keeps external software and application which manually installed and not installed using `yum` or `apt`.*
+### 🤔 Question❓: Where does this external software packages and applications go?
+If installed using `yum`, `apt` or `dnf`:
+
+* Binaries stroed into /bin or /usr/bin or /usr/sbin
+* Libraries stored into /lib or /usr/lib
+* Config files stored into /etc
+  
+> This structure keeps things modular and follows the Filesystem Hierarchy Standard (FHS).
+
+**When we install manually using `.run` or `.sh` or with any program like Python or JAVA, it stored in `/opt`**
