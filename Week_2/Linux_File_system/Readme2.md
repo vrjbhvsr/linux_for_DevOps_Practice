@@ -10,7 +10,7 @@ At the very beginnig of this tree, sits a root directory as we know represented 
 ![Image](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/linux-filesystem.png)
 
 
-## 📂 /bin (Binary Excecutable)
+## 📂 /bin/ (Binary Excecutable)
 `/bin` folder means the binary folder. The essential  -command line programs(binaries)- which is called binary excecutables needed for basic system operations like, interacting with system and maintaining it, are stored in this folder.
 The basic commands or binaries that we use such as, `ls`, `pwd`, `rm` are stored here.
 
@@ -44,7 +44,7 @@ We are not asking kernel to list the files present the directory.
 * Fetch the list of files
 * Display it.
 
-## 📂 /opt (optional)
+## 📂 /opt/ (optional)
 The opt directory in the root folder is stands for optional directory. 
 
 **This folder:**
@@ -64,3 +64,35 @@ If installed using `yum`, `apt` or `dnf`:
 > This structure keeps things modular and follows the Filesystem Hierarchy Standard (FHS).
 
 **When we install manually using `.run` or `.sh` or with any program like Python or JAVA, it stored in `/opt`**
+
+
+## 📂 /boot/ 
+* The boot dir in the root folder helps the system to start. It's like an ignition system in the car,to get the engine running.
+* This folder contains all the necessary files that are required to start(boot) the system before main operating system takes the power.
+
+**In this folder, we have:**
+
+* `vmlinuz` : It is the compressed linux kernel, which is the core of the OS.
+* `initrd` or `initramfs` : This is the temporary initial ram disk that is loaded into memory to start the system.
+* `grub` : This is a bootloader folder which decides which version of the kernel is to use.
+* `system.map` : Symbol table for the kernel — helps with debugging.
+* `config-***` : The kernel's build-time config. Useful for developers.
+
+![boot img](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/boot.png)
+
+> *🧠Usually, This `/boot/` folder is mounted on it own separate partion of the Disk. By doing this we protect our krenel from any modification or from getting affected by the system crashes or corruption in the root folder.*
+
+
+## 📂 /root/
+
+This folder is for the king of the castle means, this folder is for the root user(The main user).
+
+* This folder has all the personal files, configs stored.
+* When root user logs in they are droped in to this directory.
+  
+> *🏠 "/root" is like the home directory of the root (admin) user — just like /home/username is for regular users — but with full system access.
+>🔐 Only root has access to /root.
+>🛡️ Root can read/write/modify any file or folder on the system, unlike regular users.*
+
+  
+![boot img](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/root.png)
