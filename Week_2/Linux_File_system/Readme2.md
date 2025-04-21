@@ -96,3 +96,98 @@ This folder is for the king of the castle means, this folder is for the root use
 
   
 ![boot img](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/root.png)
+
+## 📂 /dev/
+
+This folder in the root direcotry stands for device files. As I discussed earlier, linux is all about files, even hardware is also stored as files. When OS want to interact with devices it reads/writes to this files.
+
+The folder `/dev/` contains the files that represents the devices attached to the system such as, Disk, USB drive, keyboard, mouse.
+
+![dev img](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/dev.png)
+
+* This screenshot shows the files that are stored in `/dev/` folder. The list can be different depending on devices attached to one's system.
+* On this EC2 instance, virtual disks/partitions are attached which is shown as xvda, xvda1,xvda16,..., while on local machines it can be `/dev/sda`.
+* `/dev/tty` files are related to the terminal devices.
+* The devices that help to mount disk images that also can be found here, `loop`, `loop1`,...
+
+## 📂 /sbin/
+
+The /sbin folder stands for System Binaries. It contains binary files used for system booting, recovery, and maintenance. These commands are typically intended for the root user (or superuser) and are not meant for regular users.
+
+The path of this folder is not usually available in `$path` system variables, so regular user cannot access it accidently.
+
+Some of the commands i'm mentioning here that are store in sbin folder.
+
+* ☑️ `fsck` : checks and repair file systems
+* ☑️ `reboot`: rebbots the system.
+* ☑️ `shutdown` : shuts the system safely.
+* ☑️ `iptables`: manages firewall rules.
+* ☑️ `mount`/`umount` :  mounts or unmounts filesystem.
+
+
+## 📂 /etc/
+
+This directory is the configuration directory resides under the root directory. It contains all the system-wide configuration files and shell scripts that are used to boot the system and initialize it. All the configurations related to user or services are stored here.
+
+* Again, Only root user can modify most of the files here.
+* Every services that we have install in the system stores it configurations in this folder.
+* If we want to change the system's behaviour we edit this configuration files.
+
+**Inside /etc/**
+
+```bash
+cd /
+ls /etc
+```
+
+* `passwd` :  Where all the information about users (user account) are kept.
+* `shadow` : stores secure encrypted passwords.
+* `network` : Stores network configurstion files.
+* `systemmd/` : System startup and serviece management config.
+
+
+## 📂 /srv/
+
+This folder in the root directory stands for service data directory. This folder store the data from the services that are provided by the system.
+Imagine, that are running a web server on linux box, the files like html files, css files are stored inside /srv/http(www) directory. If we are running FTP server these files would go to /srv/ftp.
+
+
+## 📂 /home/
+
+In `/home/` directory resides all the user-specific information and configurations.
+**In simple words, it's a personal locker room for each user.**
+
+* Nomal user have write access to only their own directory `/home/user`.
+* Personal files such as Downloads, Documents, and pictures are stored in user-specific directory.
+* Application data or configuration files such as, browser setting, shell prefrences.
+
+
+## 📂 /tmp/
+
+This folder is a temporary storage location for short lived files that are generated from the system rebuild or by any application.
+
+**These files can be:**
+
+* Browser cache
+* installer files
+* logs during software builds
+
+**All these files are**
+* Deleted by the system at every reboot
+* or deleted by the system after sometime.
+
+## 📂 /lib/
+
+In this folder, all the helper files needed for the essential system programs found in /bin or /sbin are stored. 
+
+**Files, such as**
+* C standard libraries(.so files)
+* math libraries
+* Device related libraries
+* Some linux system stores kernel modules
+  
+![dev img](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/lib.png)
+
+## 📂 /usr/
+
+The usr here is short for Unix system resources, it's one of the most important and large directory where 
