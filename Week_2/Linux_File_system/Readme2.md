@@ -190,4 +190,50 @@ In this folder, all the helper files needed for the essential system programs fo
 
 ## 📂 /usr/
 
-The usr here is short for Unix system resources, it's one of the most important and large directory where 
+The usr here is short for Unix system resources, it's one of the most important and large directory. All the files that contains user space data, everything that are not essential for system booting or minimal system operations.
+
+It contains the programs, libraries, documents and other data that is used by the normal user and system software after system has booted.
+
+**It contains folders like: **
+* `/bin` : User commands like **vim, python, ls**
+* `/sbin` : system tolls like **useradd, sshd**
+* `/include`: all the header files such as **C headers**
+* `/lib`:  shared libraries for **/bin or /sbin**
+
+All this folder that are present in root directory but the commands are different.
+
+## /media/
+When additional removable devices such as pendrive, cd, or USB drive are inserted to the system /media automatically mounts these devices on the system. In other words when we plug in pen drive or SD card, the system typically created a subdirectory under the /media with the namee of device for instance, `/media/username/MyUSB'.
+
+> *This process is handles by `udev`, and `udisk` or desktop environments like GNOME or KDE. Usually this directory is used for automatically mounted devices not for manual mount.*
+
+
+## 📂 /mnt/
+
+This directory has the similar working as /media but it is used for manual mount. Device like Second SSD where we want to mount temporaray file systems, that creates mount point under the /mnt folder.
+
+**Takeaways: **
+* Used when we want to access new partition or external diisk.
+* We manually create a folder under /mnt and mount the  device there.
+
+```bash
+sudo mkdir /mnt/backup
+sudo mount /dev/sdb1 /mnt/backup
+```
+
+## 📂 /var/
+
+var stands for variable, used to store the files and logs that changes frequenty during normal system operations. This folder contains system generated data that changes over time such as log rotations, package installations...
+
+Subdirectory | Purpose |
+-------------|---------|
+/var/log     | System logs — like authentication, boot logs, etc.|
+/var/tmp | Temporary files that need to persist across reboots (unlike /tmp)
+/var/cache | Cached files from applications or package managers
+/var/spool | Queued tasks like print jobs, mail, or cron jobs
+/var/lib | Application state info — e.g., databases, system daemons
+/var/www | Default location for web server files (like for Apache/Nginx)
+/var/run → /run | Info about currently running system processes
+
+
+Now, That we have learned about 
