@@ -236,4 +236,11 @@ Subdirectory | Purpose |
 /var/run → /run | Info about currently running system processes
 
 
-Now, That we have learned about 
+Now, That I have learned about files structure in the linux, it will be easy to understand the `df -Th` commands output.
+
+![script output](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/FSCMD.png)
+
+Here, the partition which has the highest memory allocated is the root partition which is root directory only represented by dev/root/ and it uses `ext4` type filesystem.
+Similarly, the devices that are virtual disk that AWS uses, `dev/xvda16` and `dev/xvda15` uses ext4 and vfat respectively.
+
+[Continue reading](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/User_and_filepermission/readme.md)
