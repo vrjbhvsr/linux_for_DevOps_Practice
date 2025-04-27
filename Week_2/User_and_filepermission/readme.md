@@ -1,3 +1,4 @@
+[....previous](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/Linux_File_system/Readme2.md)
 # User and File Permission in Linux🐧
 
 When we are using open source Operating system, where multiple users are part of one host system, understanding user and file permission is very neccessary for system security and resource control. 
@@ -89,7 +90,7 @@ Now, I have strengthend my knowledge in file system and file types let's start l
 * Write - w
 * Excecute - x
 
-> *This operations are represented as alphabatically as well as numerically. Read is represented by `r` and the numerically `4`, write is represented by `w ` and `2`, Excecute is represented by `x` and `1`.
+> *This operations are represented as alphabatically as well as numerically. Read is represented by `r` and the numerically `4`, write is represented by `w ` and `2`, Excecute is represented by `x` and `1`.*
 
 Let's see on the particular file how it is shown.
 
@@ -106,6 +107,8 @@ Let’s break it down properly:
 
 * Last three characters (rwx) → Others (everyone else)
 
+![image](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/permissions.jpg)
+
 ### ✅ How to read it?
 
 * Each set is always in the order:
@@ -116,18 +119,86 @@ Let’s break it down properly:
 
   If a permission is missing, you’ll see a dash - instead meaning user is not allowed to perform that operations.
 
+```bash
+  -rw-r--r-- 1 ubuntu ubuntu  1234 Apr 26 09:30 myfile.txt
+```
 
-![image](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/permissions.jpg)
+>  *When we see two ubuntu ubuntu after all the permissions, that shows the owner of that file and the group of that file.*
 
-I believe the above image gives clear understanding.
 
+✅ **Quick Tip:**
+
+**If you want to see only owner and group info neatly, you can also run:**
+
+
+```bash
+stat Week_1
+```
+
+Returns:
+
+![image](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/info.png)
 
 
 ## Now let's understand how to change the file permission.
 
-Sometimes it is necessary to change the operations on the file. For example, when we create a shell script that is in read and write mode but when we want to run the script we can not run it without changing it to excecutable script.
+* Before I start changing file permissions, it will be helpful for me to understand **why do we need to change the permissions.**
 
-As I did in first week, i first created .sh files with basic commands and to make it excecutable I used `chmod +x filename` command.
+1️⃣ **Security 🛡️:**
+    We don't want everyone to ready, modify, or excecute sensitive files.
+
+2️⃣ **Access Control 👨‍💻:**
+    Sometimes we only want certain people to perform file operations.
+
+3️⃣ **Team collaborations 🤝:**
+    In industirs where mostly there is multi-user environment, controlling who can do what avoids accidental damage.
+
+4️⃣ **Functionality ⚙️:**
+    Sometimes some files like shell scripts requires correct permissions to run it properly.
+
+The below screenshot shows that as **peter** user i want to open the **ubuntu's** home directory and here what it does....
+
+![image](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/pd.png)
+
+It shows permission denided, well ofcourse as peter i can't explore ubuntu's home. but what if **ubuntu** allows other users to visit his home? 
+
+**let's do that:**
+
+✅ As any user, check home directory permission.
+
+✅ As ubuntu user, allow other user to read and excecute the files but not write,  using `chmod` command.
+
+> *In the case of directories, to enter a directory (cd into it), you must have execute (x) permission on that directory. Read (r) permission alone lets you see the names of files (if you could list), but without execute (x), you cannot cd into the directory.*
+
+```bash
+chmod o+rx ubuntu
+
+# Or
+
+chmod 755 ubuntu 
+```
+
+✅ Switch to peter user.
+
+✅ Check if we can go to ubuntu's home.
+
+![image](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/pg.png)
 
 
+**Same way, we can change the permissions of the files or scripts. But in the command `chmod o+rx ubuntu`, we know that rx are used for read and excecute but what is **o+**.**
+
+* So, `o` = others, `u` = user, `g` = group.
+* `+` is to add permission.
+* `-` is to remove permssion.
+* `a` is to append permssion to all users, group, others.
+
+
+![image](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/pg.png)
+
+As we can see from the image above, The file, hello.sh, has permission set for others as read and excecute. In result, Vraj as user could run and excucute the script but failed to make any modification.
+
+Below screenshots revels another command and it's working, which is relatively easy to understand.
+
+![image](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/asvraj.png)
+![image](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/aspeter.png)
 
