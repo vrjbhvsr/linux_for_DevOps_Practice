@@ -112,6 +112,8 @@ I have created a GitHub repository to upload all my scripts and practice exercis
 
 [🔗 Linux\_for DevOp](https://github.com/vrjbhvsr/linux_for_DevOps_Practice.git)s
 
+[Read my first blog too!](https://0-2devops.hashnode.dev/from-zero-to-devops-my-first-week-with-linux-commands)
+
 ## [What’s Next on t](https://github.com/vrjbhvsr/linux_for_DevOps_Practice.git)he [Journey?](https://github.com/vrjbhvsr/linux_for_DevOps_Practice.git)
 
 ### [Next Step](https://github.com/vrjbhvsr/linux_for_DevOps_Practice.git)s 🚀
