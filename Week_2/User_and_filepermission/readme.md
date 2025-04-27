@@ -93,4 +93,41 @@ Now, I have strengthend my knowledge in file system and file types let's start l
 
 Let's see on the particular file how it is shown.
 
-![image]((https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/FTP.png)
+![image](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/ops.png)
+
+In the screenshot, we might notice different permission patterns like rw-rw--x or rwxrwxrwx.
+Let’s break it down properly:
+
+### ✅ Why rwx pattern repeats three times?
+
+* First three characters (rwx) → User permissions (owner of the file)
+
+* Next three characters (rwx) → Group permissions (members of the owner's group)
+
+* Last three characters (rwx) → Others (everyone else)
+
+### ✅ How to read it?
+
+* Each set is always in the order:
+  
+  r = read,
+  w = write,
+  x = execute.
+
+  If a permission is missing, you’ll see a dash - instead meaning user is not allowed to perform that operations.
+
+
+![image](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/screenshots/permissions.jpg)
+
+I believe the above image gives clear understanding.
+
+
+
+## Now let's understand how to change the file permission.
+
+Sometimes it is necessary to change the operations on the file. For example, when we create a shell script that is in read and write mode but when we want to run the script we can not run it without changing it to excecutable script.
+
+As I did in first week, i first created .sh files with basic commands and to make it excecutable I used `chmod +x filename` command.
+
+
+
