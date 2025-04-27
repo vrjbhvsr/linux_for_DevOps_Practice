@@ -108,7 +108,9 @@ This was a great way to control permissions beyond the basic user/group/others m
 
 ## **📂 GitHub Repository**
 
-I have created a GitHub repository to upload all my scripts and practice exercises. \[[🔗 Linux\_for DevO](https://github.com/vrjbhvsr/linux_for_DevOps_Practice.git)[p](https://github.com/vrjbhvsr/linux_for_DevOps_Practice.git)\]([https://github.com/vrjbhvsr/linux\_for\_DevOps\_Practice.git](https://github.com/vrjbhvsr/linux_for_DevOps_Practice.git))
+I have created a GitHub repository to upload all my scripts and practice exercises.
+
+[🔗 Linux\_for DevOp](https://github.com/vrjbhvsr/linux_for_DevOps_Practice.git)s
 
 ## [What’s Next on t](https://github.com/vrjbhvsr/linux_for_DevOps_Practice.git)he [Journey?](https://github.com/vrjbhvsr/linux_for_DevOps_Practice.git)
 
