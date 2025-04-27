@@ -114,9 +114,9 @@ I have created a GitHub repository to upload all my scripts and practice exercis
 
 [Read my first blog too!](https://0-2devops.hashnode.dev/from-zero-to-devops-my-first-week-with-linux-commands)
 
-## [What’s Next on t](https://github.com/vrjbhvsr/linux_for_DevOps_Practice.git)he [Journey?](https://github.com/vrjbhvsr/linux_for_DevOps_Practice.git)
+## What’s Next on the Journey?
 
-### [Next Step](https://github.com/vrjbhvsr/linux_for_DevOps_Practice.git)s 🚀
+### Next Steps 🚀
 
 Now that I’ve covered the basics of file permissions, user management, and file systems, I’m ready to dive deeper into the following topics:
 
