@@ -1,5 +1,5 @@
 # 🐧 Linux User Account Management 🔐
-![...previous⬅️](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/User_Account_management/Readme.md)
+[...previous⬅️](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/User_Account_management/Readme.md)
 
 ## 🔑Set Password for user
 So far, I have created multiple users but didn't set password. 
@@ -67,3 +67,4 @@ userdel vraj      # This will deletes the user account but keeps the home direct
 userdel -r vraj   # This will deletes the user along with their home directory and mail spool.
 userdel -f vraj   # This will force delete the user even if it's logged in or running a process.
 ```
+[Continue......](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_2/Linux_File_system/Readme.md)
