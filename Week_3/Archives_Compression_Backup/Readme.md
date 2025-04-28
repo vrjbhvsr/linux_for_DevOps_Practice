@@ -113,3 +113,25 @@ tar -cjvf archive_name.tar.bz2 folder_name/
 
 tar -xjvf archive_name.tar.bz2
 ```
+
+## 🛠 Working with gzip, gunzip, zip, and unzip directly
+
+We can also zip and unzip one single file and multifiles using gzip and zip with creating bundel or tar.
+
+```bash
+gzip filename
+
+# and
+
+zip archive.zip file1 file2 file3 folder1
+```
+
+**Unzip:**
+
+```bash
+gunzip filename.gz
+
+# and
+
+unzip archive.zip
+```
