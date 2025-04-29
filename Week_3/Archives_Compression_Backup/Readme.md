@@ -135,3 +135,53 @@ gunzip filename.gz
 
 unzip archive.zip
 ```
+
+
+## Backup🛡️
+
+Backing up is an imporant in Devops, especially ensuring that configuration, logs, and important files are safe and easily recoverable in case of system failure, misconfiguration, or accidental deletion. 
+
+The process is nothing but creating a copy of data to restore it when needed(extracting).
+**This typically involvs:**
+
+1. Archiving – combining multiple files or folders into one file (e.g., using tar)
+
+2. Compressing – reducing the size of that archive for storage or transfer (e.g., using gzip, bzip2)
+
+3. Storing – saving it in a secure location (e.g., external drive, cloud, remote server)
+
+✅ Restoring the backup simply means extracting the archived and compressed file using tools like tar -xvzf.
+
+**Things that I'll expolore in backup:**
+
+* Creating a full Backup
+
+* Excluding files from Backup
+
+* Restore Backups
+
+* Create INcreamental Backup
+
+* Backup Automation with Cron
+
+### 🛠 Creating a Full Backup
+
+I want to backup the Ubuntu's home directory. The simplest way of doing it is using **tar**.
+
+```bash
+tar -czf ubuntu_backup.tar.gz /home/ubuntu             # I'm not using verbose -v flag
+```
+
+![screenshot](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_3/Screenshots/bkp.png)
+
+
+
+### 🛠 Excluding files from Backup
+
+I have tried with verbose flag and it gave me really long progress status and i noticed that .git files are also backed up, Which i dont want. We can exclude certain files from Backup.
+
+```bash
+tar --exclude='*.git' --exclude='.webp' -czvf ubuntunewbackup.tar.gz /home/ubuntu
+```
+
+![screenshot](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_3/Screenshots/ebkp.png)
