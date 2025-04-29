@@ -160,9 +160,7 @@ The process is nothing but creating a copy of data to restore it when needed(ext
 
 * Restore Backups
 
-* Create INcreamental Backup
-
-* Backup Automation with Cron
+* Create Increamental Backup
 
 ### 🛠 Creating a Full Backup
 
@@ -181,7 +179,47 @@ tar -czf ubuntu_backup.tar.gz /home/ubuntu             # I'm not using verbose -
 I have tried with verbose flag and it gave me really long progress status and i noticed that .git files are also backed up, Which i dont want. We can exclude certain files from Backup.
 
 ```bash
-tar --exclude='*.git' --exclude='.webp' -czvf ubuntunewbackup.tar.gz /home/ubuntu
+tar --exclude='*.git' --exclude='.webp' -czvf ubuntubackup.tar.gz /home/ubuntu
 ```
 
 ![screenshot](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_3/Screenshots/ebkp.png)
+
+
+### 🛠 Restoring Backup
+
+When we want to restore our backup after system faliure or after any accWhen recovering from a system failure or accidental data loss, you can restore your backup by simply extracting the archived and compressed folder using tools like tar. 
+
+```bash
+tar -xzf ubuntubackup.tar.gz -C /home/vraj/Restore/
+```
+
+![screenshot](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_3/Screenshots/rbkp.png)
+
+
+### 🛠 Create Incremetal Backup
+
+Imagine after backing up your directory, you made some changes and want to backup that too. In that case instead of crating another backup file, which is not ideal for time and space, incremental backup helps by saving the changes since last backup.
+
+**To create an incremental backup we need initial backup and then incremetal backup with flag  `--listed-incremental`**
+
+```bash
+
+# ✅ Step 1: Create the full backup (with snapshot tracking)
+tar --listed-incremental=snapshot.snar -czvf full_backup.tar.gz /home/vraj
+
+# ✅ Step 2: Later, create the incremental backup (with same snapshot file)
+tar --listed-incremental=snapshot.snar -czvf incremental-backup.tar.gz /home/vraj
+
+
+**To Restore incremental backup we need initial backup and then incremetal backup with flag  `--listed-incremental`**
+
+```bash
+
+# ✅ Step 1: Create the full backup (with snapshot tracking)
+tar --listed-incremental=/dev/null -xzvf full_backup.tar.gz -C /home/Restore/
+
+# ✅ Step 2: Later, create the incremental backup (with same snapshot file)
+tar --listed-incremental=dev/null -xzvf incremental-backup.tar.gz -C /home/Restore/ 
+```
+
+> *Here, flag `-C` is used for changing Directory*
