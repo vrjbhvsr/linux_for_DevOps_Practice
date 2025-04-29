@@ -162,6 +162,8 @@ The process is nothing but creating a copy of data to restore it when needed(ext
 
 * Create Increamental Backup
 
+* Automating backup using Cron
+
 ### 🛠 Creating a Full Backup
 
 I want to backup the Ubuntu's home directory. The simplest way of doing it is using **tar**.
@@ -223,3 +225,64 @@ tar --listed-incremental=dev/null -xzvf incremental-backup.tar.gz -C /home/Resto
 ```
 
 > *Here, flag `-C` is used for changing Directory*
+
+
+### 🛠 Automate Backup
+
+Before start writing commands for automating backup, it is necessary to understand what is Cron.
+
+#### What is Cron?
+
+Cron is a time based jb schedular in Unix like operating system(Linux). It lets you run commands or scripts at scheduled times or intervals. It's Perfect for automating tasks like:
+
+* Running backup scripts daily
+
+* Cleaning temporary files every week.
+
+* Sending report every morning
+
+**How does it work?**
+You create a cron job by editing a file called crontab(crontable), which lists what to run and when to run it.
+
+To open a cron editor:
+
+```bash
+crontab -e
+```
+
+cron entry looks like this:
+
+```bash
+* * * * * command or path/to/script.sh
+```
+
+The five asterisks mean:
+
+```
+┌───────────── minute (0 - 59)
+│ ┌───────────── hour (0 - 23)
+│ │ ┌───────────── day of the month (1 - 31)
+│ │ │ ┌───────────── month (1 - 12)
+│ │ │ │ ┌───────────── day of the week (0 - 7) (Sunday is both 0 and 7)
+│ │ │ │ │
+* * * * *  command_to_execute
+```
+
+Below, I create one example of automating backup every day at 3 AM of ubuntu home dir. I will be using command instead of script for now.
+
+```bash
+step 1: open cron jobs editor
+
+crontab -e
+
+step 2: Add cron job to run backup
+
+0 3 * * * sudo tar --listed-incremental=snapshot.snar -czvf /home/vraj/$(date +\%F)-backup.tar.gz /home/ubuntu
+```
+
+To check the list of cron jobs
+
+```bash
+crontab -l
+```
+
