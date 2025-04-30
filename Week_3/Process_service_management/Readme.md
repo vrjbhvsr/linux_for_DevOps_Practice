@@ -148,7 +148,7 @@ top                # Real-time view of processes
 ```
 
 ```bash
-top                # Better Visual version of top
+htop                # Better Visual version of top
 ```
 
 ```bash
@@ -158,3 +158,74 @@ pidof                # Get PID o the programm
 ```bash
 pgrep                # Searches processes by name
 ```
+
+
+
+## Starting and Controlling Process
+
+### Running Programs
+
+* To run a compiled program or script in the foreground:
+  
+▶️ Basic Run:
+
+```bash
+./program-script
+```
+
+* To run a compiled program or script in the Background:
+
+▶️ Background Run:
+
+```bash
+./program-script &
+```
+
+### Controlling Foreground and Background jobs
+
+📌 `jobs`: Shows the background jobs for current terminal.
+
+```bash
+jobs
+```
+
+📌 `fg`: Bring background job to the foreground
+
+```bash
+fg %10      # Here, % is show it's a job number not processID
+```
+
+📌 `bg`: Resumes a suspended job in the background.
+
+```bash
+bg %10
+```
+
+### Suspending job
+
+📌 `ctrl + z`
+
+    * The job we want to stop or suspend can be done by  `ctrl+z` command. When we again want to continue we just have to write `bg`
+ or `fg`.
+
+ ### 🛡️ Run Programs That Survive Logout
+
+If we want to logout and process is running background we can still do it without terminating the process by `nohup` command. The process continues even after log out and saved to `nohup.out` once finished.
+
+ ```bash
+nohup ./program &
+```
+
+📌 `disown`
+
+If we use disown the job than it will be removed from the jobs table. The shell will forget this job and won't keep track of that job. When you log out it might get killed.
+
+```bash
+disown %10
+```
+
+So, After disowning the job shell forgets the job id and we won;t be able to conitnue job later. it's gone completely. But we might able to get the process Id using `pgrep`, `top`, `pidof`.
+
+
+
+
