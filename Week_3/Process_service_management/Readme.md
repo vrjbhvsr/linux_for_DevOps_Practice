@@ -139,3 +139,22 @@ ps -ef |grep daemon
 🖥️ Example Output:
 
 ![screenshot](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_3/Screenshots/dmn.png)
+
+
+### Another usefull commands:
+
+```bash
+top                # Real-time view of processes
+```
+
+```bash
+top                # Better Visual version of top
+```
+
+```bash
+pidof                # Get PID o the programm
+```
+
+```bash
+pgrep                # Searches processes by name
+```
