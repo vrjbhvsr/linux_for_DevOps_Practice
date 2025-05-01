@@ -205,8 +205,8 @@ bg %10
 
 📌 `ctrl + z`
 
-    * The job we want to stop or suspend can be done by  `ctrl+z` command. When we again want to continue we just have to write `bg`
- or `fg`.
+* The job we want to stop or suspend can be done by  `ctrl+z` command. When we again want to continue we just have to write `bg`
+or `fg`.
 
  ### 🛡️ Run Programs That Survive Logout
 
@@ -227,5 +227,135 @@ disown %10
 So, After disowning the job shell forgets the job id and we won;t be able to conitnue job later. it's gone completely. But we might able to get the process Id using `pgrep`, `top`, `pidof`.
 
 
+
+## Signals and Process Termination
+
+### What is signal?
+* Signal is a way for the OS or user to communicate with the process. Signals are used to pause, terminste, stop ot interupt the process.
+
+signal | number| meaning
+-------|-------|--------
+SIGTERM | 15 | To terminate the process
+SIGKILL | 9 |Force kill
+SIGSTOP| 19| To pause the process as ctrl+z
+SIGCONT| 18| To continue the paused process
+SIGHUP|1 |Terminal hang-up, or to logout
+SIGINT| 2| Interrupt same as ctrl+C
+
+**To send this signal to process we can use kill command along with signal name or number.**
+
+``` bash
+kill -signal PID
+
+# or
+
+Kill signalnumber PID
+```
+
+
+🖥️ Example Input:
+
+``` bash
+
+kill -9 1234        # Force kill (SIGKILL)
+kill -15 1234       # Graceful terminate (SIGTERM)
+kill -STOP 1234     # Pause process
+kill -CONT 1234     # Resume process
+```
+
+
+### Zombie and Orphan processes
+
+**Zombie Process:** Zombie process is a child process that has finished but the paraent process did not collect exit staus. This process stays in process tables.
+
+**Orphan process:** Orphan process is a process where parent process is has died. In this case OS reassigns it to init/systemd to take care.
+
+**Another usefull commands**
+
+`kill PID`: sends signal(SIGTERM)
+
+`kill -9 PID`: Force kill
+
+`pkill name`: kills the process with process name
+
+`killall name`: kills all the process with given name.
+
+`xkill`: Click a window to kill its process
+
+
+## Monitoring and managing Resources
+
+### Real-time monitoring with `top` command
+
+* To monitor real time process, we have already seen the command `top`. 
+
+* It also gives information about CPU, load average, memory.
+
+* After running top command, we can perform interactive command while running top process.
+
+  * `P`: Sort the processes by CPU usage
+ 
+  * `H`: To toggle the thread view
+ 
+  * `M`: sorts the processes by memory usage
+ 
+  * `k`: kill a process
+ 
+  * `r`: renice the process(Changing the priority)
+ 
+  * `u`: filter the process by user
+ 
+### Enhanced inference with `htop`
+
+* Using `htop` command we can have color coded, mouse support visualization.
+
+* It shows tree view of Parent-child processes.
+
+* Easier to sort, search with F6,F3 buttons.
+
+> *We can also visualize sorted processes by CPU and memory usage using `ps` command.*
+
+```bash
+ps aux --sort=-%cpu
+ps aux --sort=-%mem
+```
+
+Here, - sign shows sorted in descending order.
+
+
+### ⚖ 3. nice and renice — Set or change process priority
+
+We can prioritize the process on the scale of -20 to +19, where -20 is the highest priority and +19 is the lowest priority and when no value is provided then it sets to 0.
+
+```bash
+nice -n 10 myscript.sh
+```
+
+We can change the priority of running process using`renice`
+
+```bash
+renice -n 5 -p 1234
+```
+
+### vmstat - Virtual memory statistics
+
+This commands shows the memory process, swap process, i/o process at set time. For example if we set 10, it will give us the status at every 10 seconds.
+
+```bash
+vmstat 10
+```
+
+🖥️ Example Output:
+
+![screenshot](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_3/Screenshots/vmstate.png)
+
+
+* r: run queue (how many processes waiting for CPU)
+
+* free: free memory
+
+* si/so: swap in/out
+
+* us, sy: CPU time user/system
 
 
