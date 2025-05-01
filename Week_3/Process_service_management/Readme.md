@@ -359,3 +359,13 @@ vmstat 10
 * us, sy: CPU time user/system
 
 
+### iostat- I/O-Disk statistics 
+
+This command help us to monitor the CPU and disk usage by providing us the statistics.
+
+```bash
+iostat -x 10 5
+```
+
+> Gives extended stats every 10 second 5 times.
+
