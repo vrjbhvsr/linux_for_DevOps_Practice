@@ -345,7 +345,7 @@ vmstat 10
 
 🖥️ Example Output:
 
-![screenshot](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_3/Screenshots/vmstate.png)
+![screenshot](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_3/Screenshots/vmstat.png)
 
 
 * r: run queue (how many processes waiting for CPU)
