@@ -369,3 +369,136 @@ iostat -x 10 5
 
 > Gives extended stats every 10 second 5 times.
 
+## Process Priorities and Scheduling
+
+I have already shown above how to set and change priorities of the process that are running in user-space. In other words, we can influence how the kernel schedules processes without modifying kernel.
+
+> The thing to remember, ven if we can influence kernel, Scheduling the process will be still happening in kernel space.
+
+So, In user space we can only write commands like **nice** and **renice** to request the kernel to schedule the process according to priority.
+
+**By setting the nice value, we are telling CPU to give more/less time to other process.
+
+### CPU SCheduling
+
+Now, let's actually understand how kernel schedules the processes.
+
+* When there are too many processes, CPU can run only one process ata time per core. **So the linux kerenl must decides:**
+
+    * Which process to run first,
+ 
+    * for how long to run the process
+ 
+    * when to swith the process
+ 
+  This Decision making is done by the kernel schedular which lives in kernel space.
+
+* Modern linux system uses CFS(completely Fair Schedular) Schedular.
+
+    * Gives all process **Fair** share of CPU
+ 
+    * Uses weights deived from nice values to distribute time.
+ 
+    > CFS balances interactive and batch jobs smoothly.
+
+**Real-time Scheduling:**
+
+In real-time scheduling, the OS ensures that the scheduled process will run within specific time frmae as soon as it's ready. In normal scheduling the process might get delayed by other programs and that's what CFS do.
+
+For Real-time Scheduling, there are set of rules the linux kernel uses to decide which process gets cpu next, we call it scheduling policies.
+
+**Scheduling Policies:**
+
+✅ **SCHED_OTHER:**
+
+* This is the default policy that kernel uses which none other than CFS.
+
+* The CPU shares equal time to all processes.
+
+✅ **SCHED_FIFO:**
+
+* This policy is a real-time schedular policy, FIrst-In First-Out.
+
+* There is not time distribution like others.
+
+* High priority process run until it finishes it's job and keeps other process blocked from using CPU time.
+
+* It requires root permission if you wanna set it.
+
+```bash
+sudo chrt -f  70 ./real-time-process
+```
+
+**Here,**
+
+    * `chrt` command is used to change or set or view the real-time policy. 
+
+    * `-f` flag is used to tell the kernel that it is a FIFO policy.
+
+    * Where the number suggest the priority ranking. Unlike `nice` value, here the priority ranking ranging from 1-99.
+
+✅ **SCHED_RR(Scheduler Round-Robin)**
+
+* This policy is bit similar to FIFO, but it sets time slicing.
+
+* Once the time given to the process finishes, it moves to the next process.
+
+```bash
+sudo chrt -r 60 ./realtime_process
+```
+
+**Here**, `-r` flag is used to tell the kernel that use RR policy.
+
+
+## Parent-child process relationsips
+
+* As we know, the process that creates another process is the parent process and the process itself is a child process.
+
+* These both processes are nearly similar at first and the child process inherits the property of the parent process.
+
+* Now, it is wise to understand **`how is the processes are created?`**
+
+**fork()**
+* A process uses a system call **`fork()`** to create nearly exact similar process as current process. At this time we have two processesin hand,
+    1. The parent process(current)
+    2. child process(new but nearly similar)
+
+> Each process has its own unique PID, but they share the same code initially.
+
+**exec()**
+* This is another system call used to replace the created copy process with the new program.
+
+* This call laods the new binary to the the memory space.
+
+### 🌳 Parent-Child Relationships
+
+* Every process has **Process id(PID)** and **parent process ID(PPID)**.
+
+* We can check it by `pstree` command.
+
+```bash
+pstree -p
+```
+
+
+🖥️ Example Output:
+
+![screenshot](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_3/Screenshots/pstree.png)
+
+
+### 🔎 Inspecting Process Behavior
+
+* To check how the system is using to process the commands and what system calls are used, we can use `strace` command.
+
+> When i was understanding linux file structure, i had an curiosity how this commands returns the  result. I have also mentioned in week_2 file system topic how ls is executed.
+
+```bash
+strace command
+```
+
+* If we want to check the files that are opened by the process we use `lsof` command.
+
+```bash
+lsop -p pid
+```
+
