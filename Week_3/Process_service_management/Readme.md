@@ -16,8 +16,6 @@
 
 ✅ Advanced Tools
 
-✅ Process Automation & Logging
-
 ## Basic of Process 🌱
 
 ### What is Process?
