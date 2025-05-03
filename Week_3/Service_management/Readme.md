@@ -56,10 +56,71 @@
      
      ✅ `.timer`: This unit tells systemd when to run a `.service` file.
      > 🧠 Example: As i set cron job to run at 3AM.
-     >
+     
 **Dependencies:**
  * In systemd, dependencies define how and when one unit depends on another.
      * You want to start Service A, but it relies on Service B to be running first.
+       
   That’s where Requires=, Wants=, After=, and Before= come in.
 
 
+## Service Management using systemctl
+
+✅ Show all active services
+
+```bash
+systemctl list-units --types=services
+```
+
+✅ Show all .service unit files
+
+```bash
+systemctl list-unit-files --type=service
+```
+✅ To serch specific service
+
+```bash
+systemctl list-units --type=serivce |grep ssh
+```
+
+✅ View detail information about specific service if it's active or not
+
+```bash
+systemctl status ssh
+```
+
+✅ To start a service
+
+```bash
+systemctl start <service>
+```
+
+✅ To stop service
+
+```bash
+systemctl stop <service>
+```
+
+✅ To Restart service
+
+```bash
+systemctl restart <service>
+```
+
+✅ To Auto-start service on boot
+
+```bash
+systemctl enable <service>
+```
+
+✅ To Prevent service from starting on boot
+
+```bash
+systemctl disable <service>
+```
+
+✅ Check if it's enabled at boot
+
+```bash
+systemctl is-enabled <service>
+```
