@@ -3,9 +3,8 @@
 **In this section I will explore:**
 1. Understanding Linux Services
 2. Systemd Basics
-3. ervice Management using systemctl
-4. Logs with journalctl or traditional log files in /var/log/
-
+3. Service Management using systemctl
+4. Logs with journalctl 
 
 ## 1. Understanding Linux Services
 
@@ -64,7 +63,7 @@
   That’s where Requires=, Wants=, After=, and Before= come in.
 
 
-## Service Management using systemctl
+## 3. Service Management using systemctl
 
 ✅ Show all active services
 
@@ -124,3 +123,35 @@ systemctl disable <service>
 ```bash
 systemctl is-enabled <service>
 ```
+
+## 4. Logs with `journalctl` 
+
+* `journalctl`  is used in systemd based systems as logging tool.
+* To view various logs:
+
+✅ To view all logs
+
+```bash
+journalctl
+```
+
+✅ To view logs for specific service
+
+```bash
+journalctl -u ssh.service
+```
+> `-u` flag shows unit
+
+✅To view logs from current boot
+
+```bash
+journalctl -b
+```
+> `-b` flag shows boot
+
+✅ To view logs from past hour
+
+```bash
+journalctl --since "1 hour ago"
+```
+
