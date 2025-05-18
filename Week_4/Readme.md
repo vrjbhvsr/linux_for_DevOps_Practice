@@ -135,5 +135,91 @@ Subnetting is the process of dividing a larger network into smaller, logical sub
 * **Improved security:** By isolating subnets, we can limit the blast radius of any malicious activity- infected devices in one subnet won't directly spread more problems.
 * **Better performance**: Smaller broadcast domains reduce network congestion and improve overall throughput.
 * **Simplified Management:** You can assign IP ranges to different departments or functions, making it easir to monitor or troubleshoot, and apply policies.
-* **IP address Conservation:** If you need on;y 30 hosts, use use a /27 (32 addresses) instead of wasting a full /24.
+  > We can identify where a device lives just by its IP.
+  > * 10.0.1.x = HR network
+  > * 10.0.2.x = Guest Wi-Fi
+* **IP address Conservation:** If you need on;y 30 hosts, use a /27 (32 addresses) instead of wasting a full /24.
+    * CIDR lets you right‑size each network to the number of hosts you actually have.
 * **Scalabilty**: As your organization grows, you carve new subnets out of your main IP block—no need to renumber everything.
+
+**Quick Visual**
+
+```
+           192.168.1.0/24
+       ┌────────┴─────────┐
+192.168.1.0/25       192.168.1.128/25
+(Hosts .1–.126)      (Hosts .129–.254)
+```
+
+### CIDR(Classless inter-Domain Routing)
+
+CIDR is a compact notation that represent the IP address blocks and their subnet masks without relying on the old classful boundries as i shown above. It combines an IP address with prefix length to indicate how many bits of the network defines the network portion.
+
+it defined as:
+```
+<network-address>/<prefix-length>
+```
+* `network-address` is the starting IP of the block
+* `prefix-length` is a number from 0 to 32 in case of IPv4 as it is 32 bit long and from 0 to 128 for the IPv6 that shows the how many leading bits are the network portion.
+
+**Example IPv4**
+* `192.168.1.0/24`
+   * so, `/24` shows that first 24 bits which is 192.168.1 is the network portion.
+     
+   * Host portion is 8-bits and can be any thing between 0-255.
+     
+   * This block covers addresses from 192.168.1.0 to 132.168.1.255 total 256 addresses.
+
+**Example (IPv6):**
+
+* `2001:db8::/32`
+
+  * Network portion: first 32 bits
+
+  * This block covers 2^(128−32) addresses—enough for billions of hosts!
+
+ **Why do we needed the CIDR?**
+
+ It eliminates wasted address space inherent in classful addressing. It enables flexible subnetting of any size. It also provides route summerization by aggrigating routes.
+
+ ### Calculating Hosts from CIDR
+ * As we know there are total 32 bits in IPv4.
+ * So, the prefix length can be anything between 0-32.
+
+| CIDR | Host Bits | Total Addresses | Usable Hosts\* |
+| ---- | --------- | --------------- | -------------- |
+| /24  | 8         | 2³²⁻²⁴ = 256    | 254            |
+| /25  | 7         | 128             | 126            |
+| /26  | 6         | 64              | 62             |
+| /27  | 5         | 32              | 30             |
+| /28  | 4         | 16              | 14             |
+| /30  | 2         | 4               | 2              |
+
+**Visualizing the bitmask**
+* Take /26 as an example:
+  
+```
+255.255.255.192  = 11111111.11111111.11111111.11000000
+                                  ↑↑       ↑
+                          network bits ↓ host bits
+```
+
+* This example make understanding really easy. First 26 bits are assigned for network and we have only 6 bits left for the host portion. So, we are creating subnet of 2<sup>6</sup> = 62 addresses.
+
+### Default Gateway
+
+The default gateway is the device on your local network that acts as the “exit ramp” to other networks—usually the internet.
+
+* **Purpose:**
+When a device needs to communicate with a host on a different network, it sends the traffic to the default gateway. The gateway then forwards the packets toward their destination.
+
+* **Intra‑network Traffic:**
+For devices on the same subnet, traffic is sent directly without involving the default gateway.
+
+* **Typical Default Gateway:**
+In most home or office setups, your router serves as the default gateway.
+
+> Example (IPv4):
+> * Host IP: 192.168.0.10/24
+> * Default gateway: 192.168.0.1
+> * To send a packet to 8.8.8.8, the host forwards it to 192.168.0.1, since 8.8.8.8 is outside the 192.168.0.0/24 network.
