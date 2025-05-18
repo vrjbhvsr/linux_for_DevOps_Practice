@@ -7,9 +7,9 @@
    * Ports, TCP vs UDP, ICMP(ping, traceroute)
    * OSI Model
   
-## Networking Fundamentals
+# Networking Fundamentals
 
-1. **IP Adressing**
+## 1. IP Adressing
 
 ### What is IP address?
 
@@ -80,7 +80,7 @@ IPv4 structure is divided into two parts.
 
 * Example address: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
 
-  1. **Global Routing Prefix**: **First two block** of the address is GRP(Global Routing Prefix). In the above example `2001:0db8` is the GRP which identifies the larger network or internet service provider(ISP).
+  1. **Global Routing Prefix**: First two block of the address is GRP(Global Routing Prefix). In the above example `2001:0db8` is the GRP which identifies the larger network or internet service provider(ISP).
   2. **Subnet ID**: The next block after GRP is subnet ID. The subnet stands for sub-network meaning the one large network is divided into various subnets that help in IP address management and security.
   3. **Interface ID**: The rest of the blocks are the interface id that identifis the specific device on that subnet. This is simillar as the IPv4 host portions and changes per device.
     
@@ -92,3 +92,48 @@ IPv4 structure is divided into two parts.
 
 > *The last 64 bits are often based on the device's MAC address (EUI-64 format), but can also be randomly generated for privacy.*
 
+
+### 🔷 IP Address Classes (for IPv4)
+
+| Class | Range                       | Example     | Purpose         |
+| ----- | --------------------------- | ----------- | --------------- |
+| A     | 1.0.0.0 – 126.0.0.0         | 10.0.0.1    | Large networks  |
+| B     | 128.0.0.0 – 191.255.0.0     | 172.16.0.1  | Medium networks |
+| C     | 192.0.0.0 – 223.255.255.0   | 192.168.1.1 | Small networks  |
+| D     | 224.0.0.0 – 239.255.255.255 | –           | Multicast       |
+| E     | 240.0.0.0 – 255.255.255.255 | –           | Experimental    |
+
+**✅ Private IP ranges (used in LANs):**
+
+10.0.0.0 – 10.255.255.255
+
+172.16.0.0 – 172.31.255.255
+
+192.168.0.0 – 192.168.255.255
+
+### 🔷 IP Addressing in Linux
+
+```bash
+ip a
+```
+The commnad above is used to check the IP address in linux.
+
+**🔍Example output**
+
+[SCreenshot]()
+
+## 2. Subnetting, CIDR, and default gateways
+
+
+
+### 🌐 Subnetting(Subnet)
+
+Subnetting is the process of dividing a larger network into smaller, logical subnetworks (or subnets). This practice is especially useful in large organizations with many users and devices connected to the same network.
+
+**Why do we need Subnetting?**
+
+* **Improved security:** By isolating subnets, we can limit the blast radius of any malicious activity- infected devices in one subnet won't directly spread more problems.
+* **Better performance**: Smaller broadcast domains reduce network congestion and improve overall throughput.
+* **Simplified Management:** You can assign IP ranges to different departments or functions, making it easir to monitor or troubleshoot, and apply policies.
+* **IP address Conservation:** If you need on;y 30 hosts, use use a /27 (32 addresses) instead of wasting a full /24.
+* **Scalabilty**: As your organization grows, you carve new subnets out of your main IP block—no need to renumber everything.
