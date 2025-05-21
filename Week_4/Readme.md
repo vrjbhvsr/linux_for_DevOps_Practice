@@ -13,7 +13,7 @@
 
 ### What is IP address?
 
-Ip adress is a **unique identifier** assigned to **every devie** connected to a **network**. It is short for Interent Protocol Address. The data on the internet with the help of ip address can know where to go such as to computers, a server, a website.
+Ip adress is a **unique identifier** assigned to **every device** connected to a **network**. It is short for Interent Protocol Address. The data on the internet with the help of ip address can know where to go such as to computers, a server, a website.
 
 ### Why do we need IP Address?
 
@@ -223,3 +223,211 @@ In most home or office setups, your router serves as the default gateway.
 > * Host IP: 192.168.0.10/24
 > * Default gateway: 192.168.0.1
 > * To send a packet to 8.8.8.8, the host forwards it to 192.168.0.1, since 8.8.8.8 is outside the 192.168.0.0/24 network.
+
+
+## DNS,DHCP,NAT
+
+### 🌐 Domain Name Service (DNS)
+DNS (Domain Name Service) is a distributed database that maps human-friendly domain names (like google.com) to IP addresses (like 142.250.195.206).
+
+**🔍 Why DNS?**
+Computers communicate using IP addresses, not names. But for us humans, remembering domain names is much easier than remembering numbers.
+
+Example:
+You want to visit google.com.
+Technically, you could type the IP address of Google's server in your browser, but that's hard to remember.
+Instead, you type google.com, and DNS translates it behind the scenes to the actual IP address, allowing your browser to connect to the correct server.
+
+So, DNS works like the phonebook of the internet, converting domain names into IP addresses, enabling smooth and user-friendly browsing.
+
+**📖 Want to know how DNS works behind the scenes?**
+I’ve shared a detailed explanation on my blog — covering how your browser contacts DNS servers, the role of recursive/resolver DNS, and how the response comes back lightning-fast.
+
+[👉 Check it out here]()
+
+
+### Dynamic Host Configuration protocol(DHCP)
+
+Dynamic Host Configuration Protocol (DHCP) is a network protocol used by DHCP server to automatically assign IP addresses and other network settings to device when they connect to the network.
+
+🚀 Imagine You Just Connected Your Laptop to Wi-Fi
+The moment you join a Wi-Fi network, your laptop needs a few pieces of information to be able to talk to other devices or access the internet:
+
+* It needs an IP address
+
+* It needs a subnet mask (to know what network it's on)
+
+* It needs a default gateway (usually the router, to talk outside the network)
+
+* And it needs DNS server info (to translate website names into IPs)
+
+You could manually configure all of this, but it would be painful. That’s where DHCP comes in and does it for you automatically.
+
+The DHCP follows the DORA Process - Discover, Offer, Request, Acknowledge.
+
+**🧾 Lease Time** - DHCP doesn't assign the IP forever. It gives it for a tempoary time called a lease. When the lease expires, your device must renew it(or it gets renewed without letting us know)
+
+**📖 Want to know how DORA Process works behind the scenes?**
+[👉 Check it out here]()
+
+### Network Address Translation(NAT)
+
+NAT(Network Address Translation) is a technique used by routers to allow multiple devices on a privte network to access the internet using a single public IP address.
+
+Every device connected to a local network (like your home Wi-Fi) has a private IP address, which is not routable on the public internet.Your Internet Service Provider (ISP) assigns one public IP address to your router.
+
+**So how do your private devices communicate with the internet?**
+* That’s where NAT (Network Address Translation) comes in.
+
+**✨ How NAT works:**
+* When a device (e.g., your laptop with IP 192.168.0.5) makes a request to the internet,
+
+* The router uses NAT to translate the private IP into the public IP assigned by the ISP.
+
+* When the response comes back, NAT ensures it goes to the correct private device by keeping track of the translation.
+
+> 🔒 This translation also adds a layer of security — outside devices cannot directly access your private IPs.
+
+
+**🔷Types of NAT**
+1. SNAT(Source NAT): Chnages the source IP
+
+2. DNAT(Destination NAT): Changes the destination IP
+
+3. PAT (Port Address Translation) – The most common one; uses port numbers to track multiple connections from many devices using one IP.
+
+## Port
+
+A port is a doorway or channel that every device handles specific kinds of communication. 
+
+* While every device has their own IP address, all the different services or applications are running using the smae IP address. To differentiate between these services we use port.
+
+> 🧠Example:
+> 🏨 Think of it like a hotel:
+The hotel is your device.
+The hotel's address is your IP address.
+Each room in the hotel is a port, and the room number is the port number.
+Just like different people stay in different rooms, different services (like websites, email, SSH) run on different ports.
+
+So, even though all services share the same IP address, the port number tells the device which service should handle the communication.
+🔢 Examples of Common Port Numbers:
+
+80 → HTTP (web traffic)
+
+443 → HTTPS (secure web traffic)
+
+25 → SMTP (email sending)
+
+22 → SSH (secure shell)
+
+So when your computer talks to a web server, it might send a request to 192.168.0.1:443 — that means it’s sending it to IP 192.168.0.1 on port 443, which handles secure web traffic.
+
+**How this ports works?**
+
+* When a device makes a request or send the data over the network, it sends, destinations IP address along with destination port number. So, by sending IP address  we are telling where the data should go, and by port number we are telling which service should recieve it.
+
+* At the receiving end, the system checks the port number and passes the data to the correct application listening on that port.
+
+### 🔢 Port Numbers
+Ports are 16-bit numbers, so they range from 0 to 65535.
+
+They are grouped into categories:
+
+| Port Range    | Name                      | Example Use                           |
+| ------------- | ------------------------- | ------------------------------------- |
+| 0 – 1023      | **Well-known ports**      | HTTP (80), SSH (22), DNS (53)         |
+| 1024 – 49151  | **Registered ports**      | Custom apps like MySQL (3306), Docker |
+| 49152 – 65535 | **Dynamic/private ports** | Temporary or random ports for clients |
+
+
+## TCP, UDP, and ICMP
+
+TCP and UDP both are the protocols that used to send data between devices.
+
+### TCP (Transmission Control Protocol)
+
+TCP is a connection oriented , reliableprotocol at the the transport layer of the OSI model. it ensures that data sent from one device reaches correctly and in order on the other side.
+
+It is used in almost everything that must be reliable:
+
+* Web browsing (HTTP/HTTPS)
+
+* Email (SMTP, IMAP, POP3)
+
+* File transfer (FTP)
+
+* Remote login (SSH)
+
+**📦 Key Features**
+* **Connection-oriented**: Before sending data to another device, it checks whether connection is established or not. This process is called **handshake**.
+
+* **Reliable Delivery**: It ensures that the no packet get lost and arrives safely to the other side. if the packet lost, TCP resends them.
+
+* **Orderd Data**: TCP numbers packets so they reassembled in the correct order.
+
+* **Flow control**: it prevents buffer overflow.
+
+* **Conestion Control**: it reduces traffic when the network is busy.
+
+* **Full Duplex**: 	Data can flow in both directions simultaneously.
+
+**📖 Want to know how TCP works behind the scenes?**
+[👉 Check it out here]()
+
+### UDP( User Datagram Protocol):
+
+UDP is a connectionless, unreliable transport protocol in the OSI model;s layer 4 same as TCP. It is used when **speed matters more than reliability**.
+
+**📦 Key Features**
+
+* **Connectionless:** It is connectionless meaning it does not establish connection.
+
+* **No Reliability:** It s unreliable meaning no guaranty that data will be delivered.
+
+* **No Ordering:** There will be no orderinmg of the packets.
+
+* **Speed:** it is faster than TCP
+
+> It is commonly used in live video, VoIP, DNS, Gaming.
+
+
+### ICMP(Internet Control message Protocol):
+
+ICMP is anetork layer protocol used by devices like routers and hosts to send error messages and operational information. It is not used to send data like TCP or UDP, but to send control messages about the network.
+
+**🧠 Why Do We Need ICMP?**
+Imagine you're trying to send data to a server, but:
+
+* The server is down,
+
+* The router on the way is unreachable,
+
+* Or the packet is too large for a router to forward.
+
+In all these cases, ICMP is used to notify the sender about what went wrong.
+
+**⚙️ How Does ICMP Work?**
+ICMP messages are typically automatically generated by network devices (like routers or hosts).
+They are encapsulated inside IP packets.
+
+Example: You try to ping a website — ICMP sends an "echo request," and if the server is alive, it replies with an "echo reply."
+
+**🔧 ICMP Message Types**
+Here are some of the common ICMP message types:
+| Type | Name                    | Description                                    |
+| ---- | ----------------------- | ---------------------------------------------- |
+| 0    | Echo Reply              | Reply to a ping                                |
+| 3    | Destination Unreachable | Packet couldn’t be delivered                   |
+| 5    | Redirect Message        | Router suggests a better route                 |
+| 8    | Echo Request            | Ping request sent to test if host is reachable |
+| 11   | Time Exceeded           | TTL expired — used in tools like `traceroute`  |
+
+**📦 ICMP Packet Format**
+An ICMP packet has:
+
+| Field    | Purpose                     |
+| -------- | --------------------------- |
+| Type     | Type of ICMP message        |
+| Code     | Sub-type (more specific)    |
+| Checksum | Error-checking field        |
+| Data     | Depends on the message type |
