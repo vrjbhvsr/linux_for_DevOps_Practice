@@ -268,7 +268,7 @@ The DHCP follows the DORA Process - Discover, Offer, Request, Acknowledge.
 **🧾 Lease Time** - DHCP doesn't assign the IP forever. It gives it for a tempoary time called a lease. When the lease expires, your device must renew it(or it gets renewed without letting us know)
 
 **📖 Want to know how DORA Process works behind the scenes?**
-[👉 Check it out here]()
+[👉 Check it out here](https://dev.to/vrj_bhvsr/from-zero-to-devops-week-4-building-a-strong-foundation-in-linux-networking-dhcp-workingdora-1b5i)
 
 ### Network Address Translation(NAT)
 
