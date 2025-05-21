@@ -120,7 +120,7 @@ The commnad above is used to check the IP address in linux.
 
 **🔍Example output**
 
-[SCreenshot]()
+[Screenshot](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_4/Screenshots/ip%20a.png)
 
 ## 2. Subnetting, CIDR, and default gateways
 
