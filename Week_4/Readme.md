@@ -243,7 +243,7 @@ So, DNS works like the phonebook of the internet, converting domain names into I
 **📖 Want to know how DNS works behind the scenes?**
 I’ve shared a detailed explanation on my blog — covering how your browser contacts DNS servers, the role of recursive/resolver DNS, and how the response comes back lightning-fast.
 
-[👉 Check it out here]()
+[👉 Check it out here](https://dev.to/vrj_bhvsr/from-zero-to-devops-week-4-building-a-strong-foundation-in-linux-networking-dns-working-1dgm)
 
 
 ### Dynamic Host Configuration protocol(DHCP)
