@@ -372,7 +372,8 @@ It is used in almost everything that must be reliable:
 * **Full Duplex**: 	Data can flow in both directions simultaneously.
 
 **📖 Want to know how TCP works behind the scenes?**
-[👉 Check it out here]()
+
+[👉 Check it out here](https://dev.to/vrj_bhvsr/from-zero-to-devops-week-4-building-a-strong-foundation-in-linux-networking-tcp-working-36ia)
 
 ### UDP( User Datagram Protocol):
 
