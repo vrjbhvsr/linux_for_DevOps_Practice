@@ -209,3 +209,75 @@ sudo netplan apply
 ```
 
 After rebooting the system `sudo reboot` the permenent static Ip has been assigned to system.
+
+## 🔹 2.4 Hostname Configuration
+
+🧭 What is a Hostname?
+
+A hostname is the name given to a computer or device on a network. It is used to identify the system in a human-readable way. Just like every person has a name in a classroom, every computer in a network has a hostname.
+
+   > For example, instead of remembering that your web server is at 10.0.2.62, you can refer to it as webserver1.local or lfcs-node1.
+
+**There are 3 main types of hostnames:**
+
+* static: Set by the system and used across reboots.
+
+* pretty: A user-friendly display name (like “Vraj’s Laptop”).
+
+* transient: Temporary, used during runtime, but reset on reboot.
+
+**Linux systems mainly rely on static hostnames.**
+
+**🛠 Check and Change Your Hostname**
+
+To see your current hostname:
+
+```bash
+hostnamectl status
+```
+
+🔍 Example Output:
+
+![Screenshot](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_4/Screenshots/hstnm.png)
+
+
+To set your hostname to something more meaningful:
+
+```bash
+sudo hostnamectl set-hostname lfcs
+```
+
+To confirm the change:
+
+```bash
+hostnamectl
+hostname
+```
+**📁 /etc/hosts File**
+
+After setting the hostname, you also need to update the /etc/hosts file so your own system knows how to resolve your hostname into an IP address (usually the IP of the local system).
+
+Edit the file using:
+
+```bash
+sudo vim /etc/hosts
+```
+and add:
+
+```
+127.0.0.1       localhost
+10.0.2.62       lfcs
+```
+
+This helps commands like ping or other apps resolve the name lfcs-node1 to the correct IP.
+
+**Ping by Hostname**
+
+```bash
+ping lfcs
+```
+
+If it replies, hostname resolution works! Your system is able to match the name with an IP.
+
+
+
