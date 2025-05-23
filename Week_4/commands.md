@@ -210,7 +210,7 @@ sudo netplan apply
 
 After rebooting the system `sudo reboot` the permenent static Ip has been assigned to system.
 
-## 🔹 2.4 Hostname Configuration
+## 🔹 Hostname Configuration
 
 🧭 What is a Hostname?
 
