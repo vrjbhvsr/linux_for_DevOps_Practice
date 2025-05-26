@@ -77,4 +77,66 @@ systemd-resolve --status
 ![Screenshot](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_4/Screenshots/DNSsts.png)
 
 
+**To query the DNS that it is workng or not:**
 
+```bash
+dig openai.com
+host openai.com
+nslookup openai.com
+```
+
+**`dig`**
+* `dig` command stands or domain information groper. It performs DNS query for A records.
+
+
+| Record | Purpose                                  | Example                                    |
+| ------ | ---------------------------------------- | ------------------------------------------ |
+| A      | IPv4 address for a hostname              | `www → 93.184.216.34`                      |
+| AAAA   | IPv6 address for a hostname              | `www → 2606:2800:220:1:248:1893:25c8:1946` |
+| CNAME  | Alias or “canonical name”                | `blog → example.com`                       |
+| MX     | Mail Exchanger (email server)            | `example.com → mail.example.com`           |
+| NS     | Nameserver for the zone                  | `example.com → ns1.example.com`            |
+| TXT    | Arbitrary text (SPF, DKIM, verification) | `v=spf1 include:_spf.google.com ~all`      |
+
+* It provides a detailed, structured response including:
+
+    * The question (what was asked)
+
+    * The answer (e.g., IP address)
+
+    * The authority (which name server responded)
+
+    * The additional section (related data)
+
+    * Query time and server details
+
+🔍 Exaple Output
+
+![Screenshot](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_4/Screenshots/dig.png)
+
+
+**`host`**
+
+* host is a simpler DNS lookup tool.
+
+* It returns the IP address for a domain or shows name servers if querying a domain like google.com.
+
+* It’s useful for quickly checking one piece of info like A, AAAA, or MX records.
+
+🔍 Exaple Output
+
+![Screenshot](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_4/Screenshots/host.png)
+
+**`nslookup`**
+
+* nslookup (Name Server Lookup) is an older but still widely used tool.
+
+* Like host, it queries the DNS for records like A, AAAA, MX, etc.
+
+* It’s interactive if run alone (nslookup), and one-off if used with a domain (nslookup example.com).
+
+* It's less verbose than dig but more so than host.
+
+🔍 Exaple Output
+
+![Screenshot](https://github.com/vrjbhvsr/linux_for_DevOps_Practice/blob/main/Week_4/Screenshots/nslookup.png)
